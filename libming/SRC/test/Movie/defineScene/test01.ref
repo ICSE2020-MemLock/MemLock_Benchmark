@@ -1,0 +1,76 @@
+File version: 9
+File size: 66
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 10
+
+Offset: 20 (0x0014)
+Block type: 69 (SWF_FILEATTRIBUTES)
+Block length: 4
+
+ FileAttributes: HasMetaData 0, UseNetwork 0, HasAS3 0
+
+Offset: 26 (0x001a)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 28 (0x001c)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 30 (0x001e)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 32 (0x0020)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 34 (0x0022)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 36 (0x0024)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 38 (0x0026)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 40 (0x0028)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 42 (0x002a)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 44 (0x002c)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 46 (0x002e)
+Block type: 86 (SWF_DEFINESCENEANDFRAMEDATA)
+Block length: 16
+
+ SceneCount: 2
+  Scene #0: Offset: 0, Name: test0
+  Scene #1: Offset: 5, Name: test1
+ FrameLabelCount: 0
+
+Offset: 64 (0x0040)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

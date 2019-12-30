@@ -1,0 +1,90 @@
+.TH makeswf 1 "27 Mar 2005" "" "Ming utils"
+.\" $Id$
+.SH NAME
+makeswf - actionscript compiler
+.SH SYNOPSIS
+.B makeswf [OPTIONS] <frame_content> ...
+.SH DESCRIPTION
+.B makeswf
+is a command line interface to the Ming library actionscript compiler, with support for embedding
+prebuilt content.
+.PP
+\fBframe_content\fR can be either: an ActionScript source file, a bitmap file (png or jpg), or an SWF file.
+Non-ActionScript input files are currently only recognized by extension (png, jpg, swf). Files with
+other extensions will be assumed to contain ActionScript source code.
+.PP
+Each \fBframe_content\fR will
+be stored in a separate frame of the output.
+.PP
+ActionScript code is preprocessed using \fBcpp\fR before being compiled,
+this allows (among many other things) grouping multiple sourcefiles
+into a single frame by using \fB#include\fR directives. (See 
+.SM
+.B PREPROCESSOR
+below.)
+.PP
+Bitmap or SWF content will be stored in a MovieClip named after the corresponding input filename with
+path and extension removed. This allows easy referencing of the content by ActionScript code.
+.SH OPTIONS
+.TP
+\fB\-o --output\fR <output>
+Write SWF file to <output>. Default is ``out.swf''.
+.TP
+\fB\-s --size\fR <width>x<height>
+Set output frame size in pixels (defaults to 640x480).
+.TP
+\fB\-r --frame-rate\fR <frame_rate>
+Set output frame rate (defaults to 12).
+.TP
+\fB\-v --swfversion\fR <swfversion>
+Set output SWF version (defaults to 6).
+.TP
+\fB\-c --compression\fR <compression_level>
+Set output compression level (0 to 9). Defaults to 9.
+Use -1 to disable.
+.TP
+\fB\-b --bgcolor\fR <background_color>
+Set background color using hex form (0xRRGGBB).
+If omitted, no SETBACKGROUNDCOLOR tag will be used.
+.TP
+\fB\-I\fR <dir>
+Add <dir> to the include search path.
+The option is passed to the C preprocessor.
+.TP
+\fB\-D\fR <macro>[=<def>]>
+Define <macro>.
+The option is passed to the C preprocessor.
+.TP
+\fB\-i --import\fR <library.swf>:<sym>[,<sym>]>
+Import named symbols from the given SWF file and store them into a
+.TP
+\fB\-a --init-action\fR <source.as>[:<frameno>]
+Compile the given source AS file as an init action for frame <frameno>.
+.TP
+\fB\-n --network-access\fR network|file
+Force addition of a networkAccess flag with given value.
+For SWF8 or higher the FileAttribute tag is mandatory so will be present anyway,
+with a default of 'file' access. You can use this flag to both change the default
+for SWF8+ and to provide the optional tag for SWF8-.
+The tag basically determine the resources sandbox to use when the movie is loaded
+from the filesystem, in an exclusive manner.
+.TP
+\fB\-h --help\fR 
+Print quick help.
+.TP
+\fB\-V --version\fR 
+Print version and copyright info.
+.SH PREPROCESSOR
+.B makeswf
+invokes the C preprocessor on each of the given source filenames before
+compiling them. The preprocessed version is named after the output file
+with ".frame#.pp" appended; check this file when looking for line numbers
+reported in syntax errors. 
+.PP
+An __SWF_VERSION__ macro is automatically provided so that
+ActionScript code can act differently based on target player; it is set
+to the output SWF version (changed with -v).
+.SH AUTHOR
+Written by Sandro Santilli <strk@keybit.net>
+.SH COPYRIGHT
+Code is released under the GNU GPL license.

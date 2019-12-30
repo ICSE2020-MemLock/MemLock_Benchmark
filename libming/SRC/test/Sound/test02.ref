@@ -1,0 +1,47 @@
+File version: 7
+File size: 1041721
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 14 (SWF_DEFINESOUND)
+Block length: 1041668
+
+ CharacterID: 1
+ SoundFormat: MP3
+ SoundRate: 22 KHz
+ SoundSize: 16-bit
+ SoundType: Stereo
+ SoundSampleCount: 1914048
+  Mp3: SeekSamples 1663
+
+Offset: 1041694 (0xfe51e)
+Block type: 15 (SWF_STARTSOUND)
+Block length: 3
+
+ SoundId 1
+  SoundInfo:
+    SyncStop: No
+    SyncNoMultiple: No
+    HasEnvelope: No
+    Loops: 0
+
+
+Offset: 1041699 (0xfe523)
+Block type: 56 (SWF_EXPORTASSETS)
+Block length: 16
+
+ num assets: 1
+ Asset[001]: video02.flv
+
+Offset: 1041717 (0xfe535)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 1041719 (0xfe537)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

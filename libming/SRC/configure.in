@@ -1,0 +1,524 @@
+dnl -- Release version, to bump up right after official releases 
+dnl -- last release was 0.4.7
+dnl --
+AC_INIT(ming, 0.4.8)
+MAJOR_VERSION=0
+MINOR_VERSION=4
+MICRO_VERSION=8
+
+MING_VERSION=${MAJOR_VERSION}.${MINOR_VERSION}.${MICRO_VERSION}
+
+dnl Tell configure to look in the config subdirectory
+dnl for config.guess, config.sub, etc
+AC_CONFIG_AUX_DIR(config)
+
+AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+
+AM_MAINTAINER_MODE
+
+dnl -- Version info for libtool, to bump right after official releases
+dnl -- last release was 5:4:6
+dnl --
+INTERFACE_CURRENT=5
+INTERFACE_AGE=4
+INTERFACE_REVISION=7
+
+AC_SUBST(INTERFACE_CURRENT)
+AC_SUBST(INTERFACE_REVISION)
+AC_SUBST(INTERFACE_AGE)
+
+
+dnl GNU recommended way to determine host variables (OS, etc)
+AC_CANONICAL_HOST
+
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_INSTALL
+
+dnl AM_PROG_CC_C_O seems to be the better choice when working with automake
+dnl AC_PROG_CC_C_O
+AM_PROG_CC_C_O
+
+dnl necessary to make regenerating configure in maintainer-mode work
+dnl set in Makefile.am for autoreconf too
+dnl AC_SUBST(ACLOCAL_AMFLAGS, "-I macros")
+
+AC_ARG_ENABLE(
+[cpp],
+[  --enable-cpp            Enable C++ support (default: enabled)],
+[case "${enableval}" in
+  yes) cpp_support=yes ;;
+   no) cpp_support=no ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-c++ option]) ;;
+esac],
+cpp_support=yes)
+
+dnl --------------------------------------------
+dnl Check if we should build python extension
+dnl --------------------------------------------
+AC_PATH_PROG(PYTHON, python)
+AM_CONDITIONAL(HAVE_PYTHON, test x"$PYTHON" != x)
+AC_ARG_ENABLE(
+[python],
+[  --enable-python         Enable build of python extension (default: disabled)],
+[case "${enableval}" in
+  yes) python_ext=yes ;;
+   no) python_ext=no ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-python-ext option]) ;;
+esac],
+python_ext=no)
+
+if test x"$python_ext" = xyes; then
+	if test x"$PYTHON" = x; then
+		AC_MSG_ERROR([Can't build python extension, as python executable could not be found])
+	fi
+	
+	AC_PYTHON_DEVEL
+fi
+
+AM_CONDITIONAL(BUILD_PYTHON_EXTENSION, test x"$python_ext" = xyes)
+
+
+dnl --------------------------------------------
+dnl Check if we should build perl extension
+dnl --------------------------------------------
+
+AC_PATH_PROG(PERL, perl)
+AM_CONDITIONAL(HAVE_PERL, test x"$PERL" != x)
+
+AC_ARG_ENABLE(
+[perl],
+[  --enable-perl           Enable build of perl extension (default: disabled)],
+[case "${enableval}" in
+  yes) perl_ext=yes ;;
+   no) perl_ext=no ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-perl-ext option]) ;;
+esac], perl_ext=no)
+
+if test x"$perl_ext" = xyes; then
+	if test x"$PERL" = x; then
+		AC_MSG_ERROR([Can't build perl extension, as perl executable could not be found])
+	fi
+fi
+
+AM_CONDITIONAL(BUILD_PERL_EXTENSION, test x"$perl_ext" = xyes)
+
+dnl --------------------------------------------
+dnl Check if we should build php extension
+dnl --------------------------------------------
+
+AC_PATH_PROG(PHP, php)
+AC_PATH_PROG(PHPIZE, phpize)
+dnl AM_CONDITIONAL(HAVE_PHP, test x"$PHP" != x)
+
+AC_ARG_ENABLE(
+[php],
+[  --enable-php            Enable build of php extension (default: disabled)],
+[case "${enableval}" in
+  yes) php_ext=yes ;;
+   no) php_ext=no ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-php-ext option]) ;;
+esac], php_ext=no)
+
+if test x"$php_ext" = xyes; then
+	if test x"$PHP" = x -o x"$PHPIZE" = x ; then
+		AC_MSG_ERROR([Can't build php extension, as php or phpize executable could not be found])
+	fi
+fi
+
+AM_CONDITIONAL(BUILD_PHP_EXTENSION, test x"$php_ext" = xyes)
+
+dnl --------------------------------------------
+dnl Check if we should build tcl extension
+dnl --------------------------------------------
+
+AC_PATH_PROG(TCL, tclsh)
+AM_CONDITIONAL(HAVE_TCL, test x"$TCL" != x)
+
+AC_ARG_ENABLE(
+[tcl],
+[  --enable-tcl            Enable build of tcl extension (default: disabled)],
+[case "${enableval}" in
+  yes) tcl_ext=yes ;;
+   no) tcl_ext=no ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-tcl-ext option]) ;;
+esac], tcl_ext=no)
+
+if test x"$tcl_ext" = xyes; then
+	if test x"$TCL" = x; then
+		AC_MSG_ERROR([Can't build tcl extension, as tcl executable could not be found])
+	fi
+
+tclbindir=`dirname $TCL`
+
+tcllibdirs_default="\
+$prefix/lib/itcl \
+$prefix/lib \
+$HOME/local/lib \
+$HOME/lib \
+/usr/local/lib \
+/usr/lib64 \
+/usr/lib \
+`dirname $tclbindir`/lib"
+
+	for i in $tcllibdirs_default; do
+	  for suf in 8.3 8.4 ""; do
+	    if test -f $i/libtcl$suf.so || test -f $i/libtcl$suf.a; then
+	     TCL_LIB_DIR=$i
+	     break
+	    fi
+	  done
+	done
+
+	if test -z "$TCL_LIB_DIR"; then
+	  AC_MSG_ERROR(Unable to find a Tcl library.)
+	fi
+
+tclincdirs_default="\
+/usr/include/tcl-private/generic \
+/usr/include/tk-private/generic \
+/usr/include/itcl-private/generic \
+/usr/include/tcl8.4 \
+/usr/include/tcl8.4/tcl-private/generic \
+/usr/include/tcl8.4/tk-private/generic \
+/usr/include/tcl8.4/itcl-private/generic \
+/usr/include/tcl8.4 \
+/usr/include/tcl8.3/tcl-private/generic \
+/usr/include/tcl8.3/tk-private/generic \
+/usr/include/tcl8.3/itcl-private/generic \
+/usr/include/tcl8.3 \
+/usr/include/tcl8.2/generic \
+$prefix/include/itcl \
+/usr/include/itcl3.1/generic/ \
+$prefix/include \
+$HOME/local/include \
+$HOME/include \
+/usr/local/include \
+/usr/include/tcl \
+/usr/include \
+`dirname $tclbindir`/include"
+
+	for i in $tclincdirs_default; do
+	   if test -f $i/tcl.h; then
+	     TCL_INC_DIR=$i
+	     break
+	   fi
+	done
+
+	if test -z "$TCL_INC_DIR"; then
+	  AC_MSG_ERROR(Unable to find a Tcl header.)
+	fi
+
+fi
+
+AM_CONDITIONAL(BUILD_TCL_EXTENSION, test x"$tcl_ext" = xyes)
+AC_SUBST(TCL_LIB_DIR)
+AC_SUBST(TCL_INC_DIR)
+
+dnl --------------------------------------------
+dnl Check for required programs
+dnl --------------------------------------------
+
+
+dnl AC_PROG_YACC
+
+AC_CHECK_PROGS(YACC, 'bison -y' byacc yacc)
+if test x"$YACC" = x; then
+	echo "To compile ming please install bison:"
+	echo " as .deb user: sudo apt-get install bison"
+	AC_MSG_ERROR([Could not detect yacc/bison!])
+fi
+
+AC_CHECK_PROGS(LEX, flex lex)
+if test x"$LEX" = x; then
+	echo "To compile ming please install flex:"
+	echo " as .deb user: sudo apt-get install flex" 
+	AC_MSG_ERROR([Could not find lex/flex!])
+fi
+
+AC_PROG_LIBTOOL
+if test x"$LIBTOOL" = x; then
+	AC_MSG_ERROR([could not detect libtool, bailing out])
+fi
+
+dnl Check if the X libraries are installed (needed for libungif on at least Solaris)
+AC_CHECK_LIB(X11, XGetImage, XLIB="-lX11", XLIB="")
+
+AC_ARG_ENABLE(
+[freetype],
+[  --enable-freetype       Enable freetype support (default: enabled)],
+[case "${enableval}" in
+  yes) freetype_support=yes ;;
+   no) freetype_support=no ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-freetype option]) ;;
+esac],
+freetype_support=yes)
+
+if test "$freetype_support" = "yes"; then
+	dnl Check for the freetype library
+	AC_ARG_WITH(freetype-config, [  --with-freetype-config=PROG   Use FreeType configuration program PROG], freetype_config=$withval, freetype_config=yes)
+	if test "$freetype_config" = "yes"; then 
+		AC_PATH_PROG(ft_config,freetype-config,no)
+        	if test "$ft_config" = "no"; then
+			echo "To compile ming please install freetype:"
+			echo " as .deb user: sudo apt-get install libfreetype6 libfreetype6-dev"
+			echo ""
+			echo "or disable the freetype configuration option:"
+			echo " --disable-freetype"
+                	AC_MSG_ERROR([Could not detect freetype-config!])
+        	fi
+	else
+        	ft_config="$freetype_config"
+	fi
+
+	FREETYPE_CFLAGS="`$ft_config --cflags`"
+	FREETYPE_LIBS="`$ft_config --libs`"
+
+	AC_SUBST(FREETYPE_LIBS)
+	AC_SUBST(FREETYPE_CFLAGS)
+fi
+
+dnl Check for the ungif or gif (new or old) libraries
+AC_CHECK_LIB(gif, GifErrorString, GIFLIB="-lgif", GIFLIB="")
+AC_CHECK_LIB(gif, PrintGifError, GIFLIB="-lgif")
+if test x"${GIFLIB}" = x; then
+AC_CHECK_LIB(ungif, PrintGifError, GIFLIB="-lungif")
+fi
+dnl MinGW check for libungif
+AC_CHECK_LIB(ungif, DGifOpen, GIFLIB="-lungif")
+dnl Solaris needs -lX11 on the linker line for ungif to work
+AC_CHECK_LIB(gif, GifErrorString, GIFLIB="-lgif",, "-lX11")
+AC_CHECK_LIB(gif, PrintGifError, GIFLIB="-lgif",, "-lX11")
+if test x"${GIFLIB}" = x; then
+AC_CHECK_LIB(ungif, PrintGifError, GIFLIB="-lungif",, "-lX11")
+fi
+AC_CHECK_HEADERS([gif_lib.h], GIFINC="true", GIFINC="")
+
+dnl Check for the png library
+dnl Solaris needs -lm on the linker line, and other platforms aren't bothered having it there. :)
+AC_CHECK_LIB(png, png_read_image, PNGLIB="-lpng", PNGLIB="", "-lm")
+
+dnl Check for the zlib library
+AC_CHECK_LIB(z, compress2,
+	ZLIB="-lz",
+	dnl Windows has the zlib library, but its named zdll instead
+	AC_CHECK_LIB(zdll, compress2, ZLIB="-lzdll", ZLIB="")
+)
+AC_CHECK_HEADERS([zlib.h], ZLIB_INC="true", ZLIB_INC="")
+AC_CHECK_HEADERS([getopt.h])
+
+dnl Check if the vasprintf function exists on this platform
+dnl (It's not present on MinGW and Solaris 10 at the time of this coding)
+dnl Also check for the presence of the mkstemp function (it's not on MinGW)
+AC_CHECK_FUNCS(vasprintf mkstemp)
+
+dnl Check for various getopt functions
+AC_CHECK_FUNCS(getopt getopt_long)
+
+AC_CHECK_FUNC(sin, MATHLIB="", [
+        AC_CHECK_LIB(m, sin, MATHLIB="-lm", [
+		AC_ERROR([I can't find sin() function !!!])]
+	)]
+)
+
+AC_DEFINE(TRACK_ALLOCS, 1, [Define this if you want Ming to track all objects allocations. Ming will mantain a doubly linked list of allocated objects, call Ming_collectGarbage() to get rid of them all])
+
+AM_CONDITIONAL(USE_CXX, [test "x${CXX}" != x -a "x${cpp_support}" = "xyes"])
+if test -n "${CXX}" -a "x${cpp_support}" = "xyes"; then
+	AC_DEFINE([USE_CXX], [1], [Use c++])
+fi
+
+AM_CONDITIONAL(USE_ZLIB, test x${ZLIB} != x -a x${ZLIB_INC} != x)
+if test -n "${ZLIB}" -a -n "${ZLIB_INC}"; then
+	AC_DEFINE([USE_ZLIB], [1], [Use zlib])
+fi
+
+AM_CONDITIONAL(USE_FREETYPE, test x${ft_config} != x)
+if test -n "${ft_config}"; then
+	AC_DEFINE(USE_FREETYPE, [1], [Use freetype library])
+fi
+
+AM_CONDITIONAL(GIFLIB_GIFERRORSTRING, test x"$ac_cv_lib_gif_GifErrorString" = xyes)
+if test x"$ac_cv_lib_gif_GifErrorString" = xyes; then
+	AC_DEFINE(GIFLIB_GIFERRORSTRING, [1], [Use giflib with GifErrorString, introduced 4.2.0])
+fi
+AM_CONDITIONAL(USE_GIF, test x"${GIFINC}" != x -a x"${GIFLIB}" != x)
+if test x"${GIFINC}" != x -a x"${GIFLIB}" != x; then
+	AC_DEFINE(USE_GIF, [1], [Use a gif library])
+fi
+
+AM_CONDITIONAL(USE_PNG, test x${PNGLIB} != x)
+if test -n "${PNGLIB}"; then
+ 	AC_DEFINE(USE_PNG, [1], [Use png library])
+fi
+
+MACHINE=`uname -m`
+case "$MACHINE" in
+"x86_64")
+	CFLAGS="$CFLAGS -Wall -fPIC"
+	;;
+"alpha")
+	CFLAGS="$CFLAGS -Wall -fPIC"
+	;;
+"ia64")
+	CFLAGS="$CFLAGS -Wall -fPIC"
+	;;
+"hppa")
+	CFLAGS="$CFLAGS -Wall -fPIC"
+	;;
+"sun4u")
+	CFLAGS="$CFLAGS -fPIC -features=extensions"
+	;;
+*)
+	CFLAGS="$CFLAGS -Wall"
+	;;
+esac
+	
+
+dnl -------------------------------------------
+dnl Byteorder check
+dnl -------------------------------------------
+AC_C_BIGENDIAN(CFLAGS="$CFLAGS -DSWF_BIG_ENDIAN", CFLAGS="$CFLAGS -DSWF_LITTLE_ENDIAN")
+
+AC_SUBST(SHCFLAGS)
+AC_SUBST(GIFLIB)
+AC_SUBST(PNGLIB)
+AC_SUBST(MATHLIB)
+AC_SUBST(XLIB)
+AC_SUBST(ZLIB)
+AC_SUBST(MAJOR_VERSION)
+AC_SUBST(MINOR_VERSION)
+AC_SUBST(MICRO_VERSION)
+AC_SUBST(MING_VERSION)
+
+AM_CONFIG_HEADER(src/ming_config.h)
+AH_TOP(
+#ifndef __MING_CONFIG_H
+#define __MING_CONFIG_H
+)
+AH_BOTTOM(
+#endif
+)
+
+dnl AC_OUTPUT(Makefile.config src/ming.h util/ming-config)
+AC_OUTPUT([
+	docs/Makefile
+	docs/man/Makefile
+	Makefile 
+	src/actioncompiler/Makefile
+	src/blocks/Makefile
+	src/Makefile
+	src/ming.h
+	src/libming.pc
+	perl_ext/Makefile
+	perl_ext/SWF.pm
+	php_ext/Makefile
+	py_ext/Makefile
+	py_ext/setup.py
+	tcl_ext/Makefile
+	test/Makefile
+	test/Media/Makefile
+	test/Movie/Makefile
+	test/Movie/Background/Makefile
+	test/Movie/Dimension/Makefile
+	test/Movie/add/Makefile
+	test/Movie/new/Makefile
+	test/Movie/nextFrame/Makefile
+	test/Movie/NumFrames/Makefile
+	test/Movie/FrameLabel/Makefile
+	test/Movie/Protect/Makefile
+	test/Movie/Rate/Makefile
+	test/Movie/addMetadata/Makefile
+	test/Movie/setSoundStream/Makefile
+	test/Movie/setTabIndex/Makefile
+	test/Movie/setScriptLimits/Makefile
+	test/Movie/setNetworkAccess/Makefile
+	test/Movie/replace/Makefile
+	test/Movie/assignSymbol/Makefile
+	test/Movie/defineScene/Makefile
+	test/Movie/importCharacter/Makefile
+	test/Filter/Makefile
+	test/Morph/Makefile
+	test/Video/Makefile
+	test/actionscript/Makefile
+	test/Shape/Makefile
+	test/Shape/addSolidFill/Makefile
+	test/LineStyle/Makefile
+	test/MovieClip/Makefile
+	test/Gradient/Makefile
+	test/FillStyle/Makefile
+	test/Font/Makefile
+	test/Text/Makefile
+	test/Bitmap/Makefile
+	test/BrowserFont/Makefile
+	test/TextField/Makefile
+	test/PrebuiltClip/Makefile
+	test/Button/Makefile
+	test/Action/Makefile
+	test/Sound/Makefile
+	test/SoundStream/Makefile
+	macros/Makefile
+	util/Makefile
+	util/ming-config
+	ming.spec
+])
+
+
+chmod +x "$srcdir"/config/install-sh
+
+echo "Config summary: "
+
+if test x"$CXX" != x -a "x$cpp_support" = "xyes"; then
+	echo "  C++ enabled"
+else
+	echo "  C++ disabled"
+fi
+if test x"$perl_ext" = "xyes"; then
+	echo "  Perl extension enabled"
+else
+	echo "  Perl extension disabled"
+fi
+
+if test x"$php_ext" = "xyes"; then
+	echo "  PHP extension enabled"
+else
+	echo "  PHP extension disabled"
+fi
+
+if test x"$python_ext" = "xyes"; then
+	echo "  Python extension enabled"
+else
+	echo "  Python extension disabled"
+fi
+
+if test x"$tcl_ext" = "xyes"; then
+	echo "  Tcl extension enabled"
+else
+	echo "  Tcl extension disabled"
+fi
+
+if test x"$ZLIB" = "x" -o x"$ZLIB_INC" = x; then
+	echo "  ZLIB disabled"
+else
+	echo "  ZLIB enabled ($ZLIB)"
+fi
+
+if test x"$ft_config" = "x"; then
+	echo "  Freetype library disabled"
+else
+	echo "  Freetype library enabled ($ft_config)"
+fi
+
+if test x"$GIFLIB" = "x" -o x"$GIFINC" = "x"; then
+	echo "  GIF library disabled"
+else
+	echo "  GIF library enabled ($GIFLIB)"
+fi
+
+if test x"$PNGLIB" = "x"; then
+	echo "  PNG library disabled"
+else
+	echo "  PNG library enabled ($PNGLIB)"
+fi
+

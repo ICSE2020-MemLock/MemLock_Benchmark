@@ -1,0 +1,95 @@
+File version: 6
+File size: 215
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 12 (SWF_DOACTION)
+Block length: 185
+
+ 30 Actions
+    26:SWFACTION_CONSTANTPOOL
+     [000] _global
+     [001] MyTestClass
+     [002] prototype
+     [003] test
+     [004] bar
+     [005] ASSetPropFlags
+    85:SWFACTION_PUSH
+     [000]   Constant: 0 "_global"
+    90:SWFACTION_GETVARIABLE
+    91:SWFACTION_PUSH
+     [000]   Constant: 1 "MyTestClass"
+    96:SWFACTION_DEFINEFUNCTION
+    Name: 
+    NumParams: 2
+     [00] a
+     [01] b
+    CodeSize: 0
+    0 Action
+    108:SWFACTION_STOREREGISTER
+    Register: 1
+    112:SWFACTION_SETMEMBER
+    113:SWFACTION_PUSH
+     [000]   Register: 1
+     [001]   Constant: 2 "prototype"
+    120:SWFACTION_GETMEMBER
+    121:SWFACTION_STOREREGISTER
+    Register: 2
+    125:SWFACTION_POP
+    126:SWFACTION_PUSH
+     [000]   Register: 2
+     [001]   Constant: 3 "test"
+    133:SWFACTION_DEFINEFUNCTION
+    Name: 
+    NumParams: 0
+    CodeSize: 0
+    0 Action
+    141:SWFACTION_SETMEMBER
+    142:SWFACTION_PUSH
+     [000]   Register: 2
+     [001]   Constant: 3 "test"
+    149:SWFACTION_DEFINEFUNCTION
+    Name: 
+    NumParams: 0
+    CodeSize: 0
+    0 Action
+    157:SWFACTION_SETMEMBER
+    158:SWFACTION_PUSH
+     [000]   Register: 2
+     [001]   Constant: 4 "bar"
+    165:SWFACTION_DEFINEFUNCTION
+    Name: 
+    NumParams: 0
+    CodeSize: 0
+    0 Action
+    173:SWFACTION_SETMEMBER
+    174:SWFACTION_PUSH
+     [000]   Integer: 1
+     [001]   NULL: 
+     [002]   Constant: 0 "_global"
+    185:SWFACTION_GETVARIABLE
+    186:SWFACTION_PUSH
+     [000]   Constant: 1 "MyTestClass"
+    191:SWFACTION_GETMEMBER
+    192:SWFACTION_PUSH
+     [000]   Constant: 2 "prototype"
+    197:SWFACTION_GETMEMBER
+    198:SWFACTION_PUSH
+     [000]   Integer: 3
+     [001]   Constant: 5 "ASSetPropFlags"
+    208:SWFACTION_CALLFUNCTION
+    209:SWFACTION_POP
+    210:SWFACTION_END
+
+Offset: 211 (0x00d3)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 213 (0x00d5)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

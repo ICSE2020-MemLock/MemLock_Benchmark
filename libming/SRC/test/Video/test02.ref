@@ -1,0 +1,72 @@
+File version: 7
+File size: 64
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 60 (SWF_DEFINEVIDEOSTREAM)
+Block length: 10
+
+  CharacterID: 1
+  NumFrames: 65535
+  Width: 160; Height 120
+  Flag deblocking: 0
+  Flag smoothing: 0
+  Codec ID: 0
+
+Offset: 32 (0x0020)
+Block type: 26 (SWF_PLACEOBJECT2)
+Block length: 6
+
+ PlaceFlagHasClipActions 0
+ PlaceFlagHasClipDepth 0
+ PlaceFlagHasName 0
+ PlaceFlagHasRatio 0
+ PlaceFlagHasColorTransform 0
+ PlaceFlagHasMatrix 1
+ PlaceFlagHasCharacter 1
+ PlaceFlagMove 0
+ Depth 1
+ CharacterID: 1
+  Matrix:
+   TranslateX      0 TranslateY      0
+
+Offset: 40 (0x0028)
+Block type: 60 (SWF_DEFINEVIDEOSTREAM)
+Block length: 10
+
+  CharacterID: 2
+  NumFrames: 65535
+  Width: 160; Height 120
+  Flag deblocking: 0
+  Flag smoothing: 0
+  Codec ID: 0
+
+Offset: 52 (0x0034)
+Block type: 26 (SWF_PLACEOBJECT2)
+Block length: 6
+
+ PlaceFlagHasClipActions 0
+ PlaceFlagHasClipDepth 0
+ PlaceFlagHasName 0
+ PlaceFlagHasRatio 0
+ PlaceFlagHasColorTransform 0
+ PlaceFlagHasMatrix 1
+ PlaceFlagHasCharacter 1
+ PlaceFlagMove 0
+ Depth 2
+ CharacterID: 2
+  Matrix:
+   TranslateX      0 TranslateY      0
+
+Offset: 60 (0x003c)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 62 (0x003e)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

@@ -1,0 +1,34 @@
+=head1 NAME
+
+CREDITS - perl-ming contributors
+
+This file doesn't full reflect the contributors. 
+
+Please see the file AUTHORS in the distribution of ming (ming.sf.net) and 
+CVS Repository there. 
+
+=head1 MAJOR CONTRIBUTORS
+
+Thanks to the following people for their contribution (sorted by name):
+
+=over
+
+=item Dave Hayden (opaque_ndst at users.sourceforge.net)
+
+For creating the Ming library
+
+=item Erich Schubert (erich at users.sourceforge.net)
+
+For Debian packaging
+
+=item Klaus Rechert
+
+=item Peter Liscovius (peterdd at users.sourceforge.net)
+
+=item Sandro Santilli
+
+=item Wolfgang Hamann (whamann at users.sourceforge.net)
+
+For fixing and maintaining the Ming library
+
+=back

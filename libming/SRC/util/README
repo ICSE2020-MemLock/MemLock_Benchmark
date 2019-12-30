@@ -1,0 +1,39 @@
+TOOLS FOR MING
+
+  These are various tools useful in development of ming.  None are
+  particularly user friendly.  
+  
+  make all_binaries	 - compiles all working tools
+  make <name>		 - compiles the single requested tool
+
+general tools:
+  makeswf - compile actionscript code into an .swf movie
+  bindump - show file data in hex and binary
+  hexdump - show file data in hex
+
+list tools:
+  listswf    - swf format disassembler
+  listaction - show actionscript in the swf
+  listfdb    - show contents of fdb font file
+  listmp3    - show frame header info in mp3 files
+  listjpeg   - show frame header info in jpeg files
+
+swfto... converter:  
+  swftoperl   - attempt to make a perl/ming script out of an swf file
+                Look at swftoperl.html
+  swftophp    - attempt to make a php/ming script out of an swf file
+  swftopython - a todo for pythonfriends :-) not done yet.
+  
+fonts:
+  makefdb     - rip fdb font definition files out of a swf or generator
+                template file.
+	
+graphics:
+  png2dbl   - convert a png-file to dbl
+  *gif2dbl  - convert a gif-file to dbl
+  *gif2mask - convert a gif image to an alpha mask 
+  
+sound:
+  raw2adpcm - convert a raw(pcm?) soundfile to a adpcm-coded soundfile
+  	      (smaller size than raw)
+

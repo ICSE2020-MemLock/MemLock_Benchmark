@@ -1,0 +1,33 @@
+Revision history for Perl extension SWF.
+
+2007-09-29 
+	This file were never serious maintained.
+	Please see CVS on sourceforge project page:
+
+	http://sourceforge.net/cvs/?group_id=18365
+
+	or look at the ChangeLog and NEWS file of the ming distribution
+	where all changes are condensed.
+
+
+Tue Sep 25, 2001	  
+           - added DisplayItem accessor methods
+           - fixed SWF::Font::new method to accept browser fonts
+             (reported by Zbigniew).
+          
+0.09-dev  Sun Sep 23
+          - added SWF::Constants (this makes using SWF easier but it 
+            changes interface a bit :( Now you need to say, for example:
+            
+                    use SWF::Constants ':Button';
+
+          - Splitted the SWF.xs - it's now easier to maintain and debug
+
+0.01b  Fri Aug 10
+	- updated the CVS version
+	- fixed DESTROY
+	- Loads of other changes.
+
+0.01b  Mon Jan  15 23:23:02 2001
+	- beta version
+

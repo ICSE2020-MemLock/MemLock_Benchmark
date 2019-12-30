@@ -1,0 +1,37 @@
+File version: 8
+File size: 196
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 69 (SWF_FILEATTRIBUTES)
+Block length: 4
+
+ FileAttributes: HasMetaData 0, UseNetwork 0, HasAS3 0
+
+Offset: 26 (0x001a)
+Block type: 20 (SWF_DEFINELOSSLESS)
+Block length: 141
+
+ CharacterID: 1
+ Bitmap format 5
+ Bitmap width 20 x height 20
+
+Offset: 173 (0x00ad)
+Block type: 56 (SWF_EXPORTASSETS)
+Block length: 17
+
+ num assets: 1
+ Asset[001]: BitmapExport
+
+Offset: 192 (0x00c0)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 194 (0x00c2)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

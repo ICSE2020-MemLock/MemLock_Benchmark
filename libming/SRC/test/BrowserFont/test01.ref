@@ -1,0 +1,66 @@
+File version: 5
+File size: 74
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 48 (SWF_DEFINEFONT2)
+Block length: 14
+
+ FontID: 2
+ FontFlagsHasLayout: 0
+ FontFlagsShiftJis: 0
+ FontFlagsSmallText: 0
+ FontFlagsFlagANSI: 0
+ FontFlagsWideOffsets: 0
+ FontFlagsWideCodes: 0
+ FontFlagsFlagsItalics: 0
+ FontFlagsFlagsBold: 0
+ LanguageCode: 0
+ FontNameLen: 5
+ FontName: _sans
+ NumGlyphs: 0
+ CodeTableOffset: 2
+
+Offset: 36 (0x0024)
+Block type: 37 (SWF_DEFINEEDITTEXT)
+Block length: 24
+
+ CharacterID: 1
+ RECT:  (-40,-40)x(1240,440):12
+ Flags:  HasText: 1  WordWrap: 0  Multiline: 0  Password: 0  ReadOnly: 0
+         HasTextColor: 1  HasMaxLength: 0  HasFont: 1  HasFontClass: 0  AutoSize: 0  HasLayout: 0
+         NoSelect: 0  Border: 0  WasStatic: 0  HTML: 0  UseOutlines: 0
+ Font:  FontID: 2  FontHeight: 400
+ RGBA: ( 0, 0, 0,ff)
+ VariableName: 
+ InitialText: abc
+
+Offset: 62 (0x003e)
+Block type: 26 (SWF_PLACEOBJECT2)
+Block length: 6
+
+ PlaceFlagHasClipActions 0
+ PlaceFlagHasClipDepth 0
+ PlaceFlagHasName 0
+ PlaceFlagHasRatio 0
+ PlaceFlagHasColorTransform 0
+ PlaceFlagHasMatrix 1
+ PlaceFlagHasCharacter 1
+ PlaceFlagMove 0
+ Depth 1
+ CharacterID: 1
+  Matrix:
+   TranslateX      0 TranslateY      0
+
+Offset: 70 (0x0046)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 72 (0x0048)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

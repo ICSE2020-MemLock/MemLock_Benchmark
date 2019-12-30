@@ -1,0 +1,21 @@
+.\" WARNING! THIS FILE WAS GENERATED AUTOMATICALLY BY c2man!
+.\" DO NOT EDIT! CHANGES MADE TO THIS FILE WILL BE LOST!
+.TH "Ming_setWarnFunction" 3 "1 September 2008" "c2man ming.c"
+.SH "NAME"
+Ming_setWarnFunction \- Set the function that gets called when a warning occurs within the library
+.SH "SYNOPSIS"
+.ft B
+#include <ming.h>
+.br
+.sp
+SWFMsgFunc Ming_setWarnFunction(SWFMsgFunc warn);
+.ft R
+.SH "PARAMETERS"
+.TP
+.B "SWFMsgFunc warn"
+Not Documented.
+.SH "DESCRIPTION"
+This function sets function to be called when a warning occurs within the
+library. The default function prints the warning message to stdout.
+.SH "RETURNS"
+The previously-set warning function.

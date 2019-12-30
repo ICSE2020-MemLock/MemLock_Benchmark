@@ -1,0 +1,189 @@
+File version: 6
+File size: 423
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 12 (SWF_DOACTION)
+Block length: 393
+
+ 79 Actions
+    26:SWFACTION_CONSTANTPOOL
+     [000] myTarget
+     [001] test
+     [002] window
+     [003] _level
+     [004] url
+     [005] object
+     [006] 0
+     [007] 1
+     [008] movie
+     [009] newMovie
+     [010] _root
+    95:SWFACTION_PUSH
+     [000]   Constant: 0 "myTarget"
+    100:SWFACTION_GETVARIABLE
+    101:SWFACTION_TARGETPATH
+    102:SWFACTION_POP
+    103:SWFACTION_PUSH
+     [000]   Constant: 0 "myTarget"
+    108:SWFACTION_GETVARIABLE
+    109:SWFACTION_TARGETPATH
+    110:SWFACTION_TRACE
+    111:SWFACTION_PUSH
+     [000]   Constant: 1 "test"
+    116:SWFACTION_PUSH
+     [000]   String: ''
+    121:SWFACTION_GETURL2
+  Method: none
+  Target: Window
+  LoadVars: No
+  Reserved bits: 0
+    125:SWFACTION_PUSH
+     [000]   Constant: 1 "test"
+     [001]   Constant: 2 "window"
+    132:SWFACTION_GETURL2
+  Method: none
+  Target: Window
+  LoadVars: No
+  Reserved bits: 0
+    136:SWFACTION_PUSH
+     [000]   Constant: 1 "test"
+     [001]   Constant: 2 "window"
+    143:SWFACTION_GETURL2
+  Method: POST
+  Target: Window
+  LoadVars: No
+  Reserved bits: 0
+    147:SWFACTION_PUSH
+     [000]   Constant: 1 "test"
+     [001]   Constant: 2 "window"
+    154:SWFACTION_GETVARIABLE
+    155:SWFACTION_GETURL2
+  Method: POST
+  Target: Sprite
+  LoadVars: Yes
+  Reserved bits: 0
+    159:SWFACTION_PUSH
+     [000]   Constant: 1 "test"
+     [001]   Constant: 3 "_level"
+     [002]   Integer: 1
+    171:SWFACTION_STRINGCONCAT
+    172:SWFACTION_GETURL2
+  Method: POST
+  Target: Sprite
+  LoadVars: No
+  Reserved bits: 0
+    176:SWFACTION_PUSH
+     [000]   Constant: 4 "url"
+     [001]   Constant: 5 "object"
+    183:SWFACTION_GETVARIABLE
+    184:SWFACTION_GETURL2
+  Method: none
+  Target: Window
+  LoadVars: Yes
+  Reserved bits: 0
+    188:SWFACTION_PUSH
+     [000]   Constant: 4 "url"
+     [001]   Constant: 3 "_level"
+     [002]   Constant: 5 "object"
+    197:SWFACTION_GETVARIABLE
+    198:SWFACTION_STRINGCONCAT
+    199:SWFACTION_GETURL2
+  Method: none
+  Target: Window
+  LoadVars: No
+  Reserved bits: 0
+    203:SWFACTION_PUSH
+     [000]   Integer: 1
+    211:SWFACTION_CALLFRAME
+    214:SWFACTION_PUSH
+     [000]   Constant: 6 "0"
+     [001]   Integer: 1
+     [002]   Constant: 5 "object"
+    226:SWFACTION_GETVARIABLE
+    227:SWFACTION_STARTDRAG
+    228:SWFACTION_PUSH
+     [000]   Integer: 0
+     [001]   Integer: 200
+     [002]   Integer: 0
+     [003]   Integer: 200
+     [004]   Constant: 7 "1"
+     [005]   Integer: 0
+     [006]   Constant: 5 "object"
+    260:SWFACTION_GETVARIABLE
+    261:SWFACTION_STARTDRAG
+    262:SWFACTION_ENDDRAG
+    263:SWFACTION_PUSH
+     [000]   Constant: 8 "movie"
+    268:SWFACTION_GETVARIABLE
+    269:SWFACTION_PUSH
+     [000]   Constant: 9 "newMovie"
+     [001]   Integer: 100
+     [002]   Integer: 16384
+    284:SWFACTION_ADD
+    285:SWFACTION_DUPLICATECLIP
+    286:SWFACTION_PUSH
+     [000]   Constant: 8 "movie"
+     [001]   Constant: 9 "newMovie"
+     [002]   Integer: 100
+     [003]   Integer: 16384
+    303:SWFACTION_ADD
+    304:SWFACTION_DUPLICATECLIP
+    305:SWFACTION_NEXTFRAME
+    307:SWFACTION_PLAY
+    308:SWFACTION_STOP
+    309:SWFACTION_TOGGLEQUALITY
+    310:SWFACTION_GOTOFRAME
+     Frame: 0
+    315:SWFACTION_PLAY
+    316:SWFACTION_GOTOFRAME
+     Frame: 0
+    321:SWFACTION_STOP
+    322:SWFACTION_GOTOLABEL
+    330:SWFACTION_PLAY
+    331:SWFACTION_GOTOLABEL
+    339:SWFACTION_STOP
+    340:SWFACTION_SETTARGET
+     TargetName: xx
+    346:SWFACTION_PUSH
+     [000]   Constant: 10 "_root"
+    351:SWFACTION_GETVARIABLE
+    352:SWFACTION_PUSH
+     [000]   Float: 0.000000
+     [001]   Integer: 0
+    365:SWFACTION_SETPROPERTY
+    366:SWFACTION_PUSH
+     [000]   Constant: 10 "_root"
+    371:SWFACTION_GETVARIABLE
+    372:SWFACTION_PUSH
+     [000]   Float: 0.000000
+     [001]   Integer: 0
+    385:SWFACTION_SETPROPERTY
+    386:SWFACTION_PUSH
+     [000]   Constant: 10 "_root"
+    391:SWFACTION_GETVARIABLE
+    392:SWFACTION_PUSH
+     [000]   Float: 1.000000
+    400:SWFACTION_GETPROPERTY
+    401:SWFACTION_POP
+    402:SWFACTION_PUSH
+     [000]   Constant: 10 "_root"
+    407:SWFACTION_GETVARIABLE
+    408:SWFACTION_PUSH
+     [000]   Float: 1.000000
+    416:SWFACTION_GETPROPERTY
+    417:SWFACTION_POP
+    418:SWFACTION_END
+
+Offset: 419 (0x01a3)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 421 (0x01a5)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

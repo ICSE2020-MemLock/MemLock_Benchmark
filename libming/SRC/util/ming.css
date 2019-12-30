@@ -1,0 +1,33 @@
+/* ming.css */
+
+
+h1,h2,h3,h4,p,ul,ol,li,div,td,th,address,blockquote,nobr,b,i {
+ font-family:sans-serif; }
+
+h1 { font-size:18pt; margin-bottom:18px; }
+
+h2 { font-size:16pt; margin-bottom:18px; }
+
+h3 { font-size:14pt; }
+
+p,ul,ol,li,div,td,th,address,blockquote { font-size:12pt; }
+
+li { margin-top:3pt; }
+
+pre { font-family:Courier New,Courier; font-size:12pt; color:#0000C0; }
+
+code,kbd,tt { font-family:Courier New,Courier; color:#0000C0; }
+
+var { font-style:normal; color:#0000C0; }
+
+blockquote,cite { font-style:italic; }
+
+a:link { color:#AA5522; text-decoration:underline; }
+
+a:visited { color:#772200; text-decoration:underline; }
+
+a:active { color:#000000; text-decoration:none; }
+
+a.an { text-decoration:none; }
+
+.unicode { font-size:15pt; font-family:Arial Unicode MS,Arial,sans-serif }

@@ -1,0 +1,52 @@
+README
+
+PMing - a Python module for the Ming library
+
+WHAT'S NEW
+
+- 08 Jul 2004: sspickle moves some of the new API into the ming.py wrapper.
+		Lots more to do here... any help appreciated. ;-)
+		Also.. in the absense of any suggestion otherwise.. 
+		moving this mess to the main branch.
+
+- 07 Jul 2004: sspickle adds a reincarnated Zwiff package (Zope ming thingy).
+		You can just make a link in your instance home's Products directory
+		to the Zwiff directory (or just copy it) and use it in Zope.
+
+- 05 Jul 2004: sspickle finally gets distutils going for mingc. It 
+		looks like we need changes to ming.i, but i don't know
+		who else uses it... so I pulled a copy into py_ext for now.
+
+- 19 Aug 2001: sspickle adds slightly more pythonic Setup/build.py
+		(not using disttools just yet... but maybe next time!)
+
+- 19 Nov 2000: Dave adds destructors, messes up the ming.py file so it
+		acts like the php interface
+
+- 24 Oct 2000: Dave makes an attempt at updating python wrapper for 0.0.3a
+
+- 11 July 2000: First release. Preliminary python class wrapper done. 
+
+
+FEATURES
+
+Acts just like the PHP interface, so documentation is now usable. :)
+
+
+REQUIREMENTS
+- Python 1.5.2 or above.
+- Ming library v0.2-pre-a
+- a recent version of SWIG if you're going to rebuild ming_wrap.c
+  (a reasonable ming_wrap.c is included now)
+  SWIG 1.1p5 (which comes with Debian 2.2) won't work.
+
+
+LICENSE 
+This software is distributed with no warranty of layability nor 
+merchantability under the LGPL (get a copy at www.fsf.org).
+Copyleft Roberto Raggi <roberto@elecomsolutions.com>
+Member of the powerful dreamhouse [ n o z e ] 
+http://www.noze.it
+
+For information, (no)support, and flames 
+please contact Fiore Basile - <fiore@elecomsolutions.com>

@@ -1,0 +1,106 @@
+File version: 7
+File size: 230
+Frame size: (0,4000)x(0,3000)
+Frame rate: 1.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 12 (SWF_DOACTION)
+Block length: 174
+
+ 27 Actions
+    26:SWFACTION_CONSTANTPOOL
+     [000] nc
+     [001] NetConnection
+     [002] connect
+     [003] ns
+     [004] NetStream
+     [005] video
+     [006] attachVideo
+     [007] video.flv
+     [008] play
+    102:SWFACTION_PUSH
+     [000]   Constant: 0 "nc"
+     [001]   Integer: 0
+     [002]   Constant: 1 "NetConnection"
+    114:SWFACTION_NEWOBJECT
+    115:SWFACTION_SETVARIABLE
+    116:SWFACTION_PUSH
+     [000]   NULL: 
+     [001]   Integer: 1
+     [002]   Constant: 0 "nc"
+    127:SWFACTION_GETVARIABLE
+    128:SWFACTION_PUSH
+     [000]   Constant: 2 "connect"
+    133:SWFACTION_CALLMETHOD
+    134:SWFACTION_POP
+    135:SWFACTION_PUSH
+     [000]   Constant: 3 "ns"
+     [001]   Constant: 0 "nc"
+    142:SWFACTION_GETVARIABLE
+    143:SWFACTION_PUSH
+     [000]   Integer: 1
+     [001]   Constant: 4 "NetStream"
+    153:SWFACTION_NEWOBJECT
+    154:SWFACTION_SETVARIABLE
+    155:SWFACTION_PUSH
+     [000]   Constant: 3 "ns"
+    160:SWFACTION_GETVARIABLE
+    161:SWFACTION_PUSH
+     [000]   Integer: 1
+     [001]   Constant: 5 "video"
+    171:SWFACTION_GETVARIABLE
+    172:SWFACTION_PUSH
+     [000]   Constant: 6 "attachVideo"
+    177:SWFACTION_CALLMETHOD
+    178:SWFACTION_POP
+    179:SWFACTION_PUSH
+     [000]   Constant: 7 "video.flv"
+     [001]   Integer: 1
+     [002]   Constant: 3 "ns"
+    191:SWFACTION_GETVARIABLE
+    192:SWFACTION_PUSH
+     [000]   Constant: 8 "play"
+    197:SWFACTION_CALLMETHOD
+    198:SWFACTION_POP
+    199:SWFACTION_END
+
+Offset: 200 (0x00c8)
+Block type: 60 (SWF_DEFINEVIDEOSTREAM)
+Block length: 10
+
+  CharacterID: 1
+  NumFrames: 65535
+  Width: 200; Height 150
+  Flag deblocking: 0
+  Flag smoothing: 0
+  Codec ID: 0
+
+Offset: 212 (0x00d4)
+Block type: 26 (SWF_PLACEOBJECT2)
+Block length: 12
+
+ PlaceFlagHasClipActions 0
+ PlaceFlagHasClipDepth 0
+ PlaceFlagHasName 1
+ PlaceFlagHasRatio 0
+ PlaceFlagHasColorTransform 0
+ PlaceFlagHasMatrix 1
+ PlaceFlagHasCharacter 1
+ PlaceFlagMove 0
+ Depth 1
+ CharacterID: 1
+  Matrix:
+   TranslateX      0 TranslateY      0
+ Name: video
+
+Offset: 226 (0x00e2)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 228 (0x00e4)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

@@ -1,0 +1,60 @@
+File version: 7
+File size: 1762
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 14 (SWF_DEFINESOUND)
+Block length: 845
+
+ CharacterID: 1
+ SoundFormat: MP3
+ SoundRate: 22 KHz
+ SoundSize: 16-bit
+ SoundType: Mono
+ SoundSampleCount: 4608
+  Mp3: SeekSamples 1663
+
+Offset: 871 (0x0367)
+Block type: 15 (SWF_STARTSOUND)
+Block length: 3
+
+ SoundId 1
+  SoundInfo:
+    SyncStop: No
+    SyncNoMultiple: No
+    HasEnvelope: No
+    Loops: 0
+
+
+Offset: 876 (0x036c)
+Block type: 14 (SWF_DEFINESOUND)
+Block length: 845
+
+ CharacterID: 2
+ SoundFormat: MP3
+ SoundRate: 22 KHz
+ SoundSize: 16-bit
+ SoundType: Mono
+ SoundSampleCount: 4608
+  Mp3: SeekSamples 2048
+
+Offset: 1727 (0x06bf)
+Block type: 56 (SWF_EXPORTASSETS)
+Block length: 29
+
+ num assets: 2
+ Asset[001]: sound1.mp3
+ Asset[002]: delaySeeked
+
+Offset: 1758 (0x06de)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 1760 (0x06e0)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

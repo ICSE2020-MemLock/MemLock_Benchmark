@@ -1,0 +1,17 @@
+INSTALL
+
+- Extract and build (static) ming.a in the ming main directory
+
+> cd py_ext 
+
+> /path/to/python setup.py build
+
+if all is ok, then
+
+> /path/to/python setup.py install
+
+> /path/to/python shape.py
+
+- It will generate the file test.swf, 
+
+Have Fun!

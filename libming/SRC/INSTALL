@@ -1,0 +1,103 @@
+
+Installing Ming
+
+Last updated 14 January 2008.
+
+  Unpack the Ming source tarball and go into the uncompressed
+  directory.
+
+    $ gunzip ming-0.4.0-beta.tar.gz
+    $ tar xfp ming-0.4.0-beta.tar
+    $ cd ming
+
+
+  PHP
+  ***
+
+  (should work with PHP-4.0.2 and higher)
+
+  The preferred method is to build Ming as a PHP module (.so file):
+
+   1. Compile the main Ming library with its php extension
+
+      $ ./configure --enable-php
+      $ make
+
+   2. Install everything (includes install of the PHP module)
+
+      $ make install
+
+   3. Configure PHP to load Ming.  You need to adjust your
+      php.ini file, normally by adding:
+
+      extension=ming.so
+
+      The ming.so file should be in `php-config --extension-dir`
+      which is taken care of by the 'make install' step.
+
+      Note that apache will need a reload when changing the php.ini
+      used by it's php module.
+
+   The alternative way is to build Ming into the PHP source:
+
+      $ mkdir <phpdir>/ext/ming
+      $ cp php_ext/* <phpdir>/ext/ming
+      $ cd <phpdir>
+      $ ./buildconf
+      $ ./configure --with-ming=<mingdir> <other config options>
+
+   Then build and install php as usual, then restart your web server.
+
+
+  PYTHON
+  ******
+
+  (You may need python 1.5.2 or higher)
+
+      $ ./configure
+      $ make static
+      $ cd py_ext
+      $ make mingcmodule.so
+
+  Then fix the install path in the Makefile
+
+  Then install
+
+      $ make install
+
+
+  PERL
+  ****
+
+  Read the README file in the perl_ext subdirectory.
+
+
+  C/C++
+  *****
+
+  1. If you're using a development snapshot rather than a stable
+     release then,
+      $ sh autogen.sh
+
+  2. Compile the library
+      $ ./configure
+      $ make
+
+  3. Install (you usually need to be root to do this)
+      $ make install
+
+  By default it puts headers into /usr/local/include and libraries
+  into /usr/local/lib. Do ./configure --help to see how to set
+  an alternative location.
+
+  By the way, the c++_ext subdirectory contains information and a
+  test file, but there is no additional makefile or installation
+  required to use C++.
+
+
+USING MING:
+
+  Check the web site:
+
+    http://www.libming.org
+

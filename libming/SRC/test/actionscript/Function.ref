@@ -1,0 +1,98 @@
+File version: 6
+File size: 252
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 12 (SWF_DOACTION)
+Block length: 222
+
+ 18 Actions
+    26:SWFACTION_CONSTANTPOOL
+     [000] anonymous function() works
+     [001] f1
+     [002] function <name>() works
+     [003] test
+     [004] Function
+     [005] this
+     [006] name
+    109:SWFACTION_DEFINEFUNCTION
+    Name: test
+    NumParams: 0
+    CodeSize: 6
+    2 Action
+    121:SWFACTION_PUSH
+     [000]   Constant: 2 "function <name>() works"
+    126:SWFACTION_RETURN
+    127:SWFACTION_DEFINEFUNCTION
+    Name: getName
+    NumParams: 0
+    CodeSize: 13
+    5 Action
+    142:SWFACTION_PUSH
+     [000]   Constant: 5 "this"
+    147:SWFACTION_GETVARIABLE
+    148:SWFACTION_PUSH
+     [000]   Constant: 6 "name"
+    153:SWFACTION_GETMEMBER
+    154:SWFACTION_RETURN
+    155:SWFACTION_DEFINEFUNCTION
+    Name: foo
+    NumParams: 2
+     [00] x
+     [01] y
+    CodeSize: 0
+    0 Action
+    170:SWFACTION_DEFINEFUNCTION
+    Name: bar
+    NumParams: 0
+    CodeSize: 12
+    3 Action
+    181:SWFACTION_PUSH
+     [000]   Integer: 0
+     [001]   Constant: 5 "this"
+    191:SWFACTION_NEWOBJECT
+    192:SWFACTION_RETURN
+    193:SWFACTION_PUSH
+     [000]   Constant: 1 "f1"
+    198:SWFACTION_DEFINEFUNCTION
+    Name: 
+    NumParams: 0
+    CodeSize: 6
+    2 Action
+    206:SWFACTION_PUSH
+     [000]   Constant: 0 "anonymous function() works"
+    211:SWFACTION_RETURN
+    212:SWFACTION_DEFINELOCAL
+    213:SWFACTION_PUSH
+     [000]   Constant: 3 "test"
+    218:SWFACTION_GETVARIABLE
+    219:SWFACTION_PUSH
+     [000]   Constant: 4 "Function"
+    224:SWFACTION_GETVARIABLE
+    225:SWFACTION_INSTANCEOF
+    226:SWFACTION_TRACE
+    227:SWFACTION_PUSH
+     [000]   Constant: 1 "f1"
+    232:SWFACTION_DEFINEFUNCTION
+    Name: 
+    NumParams: 0
+    CodeSize: 6
+    2 Action
+    240:SWFACTION_PUSH
+     [000]   Constant: 0 "anonymous function() works"
+    245:SWFACTION_RETURN
+    246:SWFACTION_DEFINELOCAL
+    247:SWFACTION_END
+
+Offset: 248 (0x00f8)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 250 (0x00fa)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

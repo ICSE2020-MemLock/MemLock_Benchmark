@@ -1,0 +1,30 @@
+File version: 5
+File size: 110
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 69 (SWF_FILEATTRIBUTES)
+Block length: 4
+
+ FileAttributes: HasMetaData 1, UseNetwork 0, HasAS3 0
+
+Offset: 26 (0x001a)
+Block type: 77 (SWF_METADATA)
+Block length: 74
+
+ Metadata: 
+<rdf:RDF xmlns:rdf=http://www.w3.org/1999/02/22-rdf-syntax-ns#></rdf:RDF>
+
+
+Offset: 106 (0x006a)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 108 (0x006c)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

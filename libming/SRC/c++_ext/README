@@ -1,0 +1,9 @@
+
+The c++ wrapper lets you use objects in more or less the same way you would
+with PHP or Python.  Just #include <mingpp.h> and you've got handy c++ objects
+instead of c structs.  The mingpp.h file is one level up.  It gets copied to
+the same place as ming.h when you do make install.
+
+That is all.
+
+-D

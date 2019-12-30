@@ -1,0 +1,91 @@
+File version: 6
+File size: 199
+Frame size: (0,6400)x(0,4800)
+Frame rate: 12.000000 / sec.
+Total frames: 1
+
+Offset: 20 (0x0014)
+Block type: 12 (SWF_DOACTION)
+Block length: 169
+
+ 42 Actions
+    26:SWFACTION_CONSTANTPOOL
+     [000] obj
+     [001] field
+     [002] _root
+     [003] map
+     [004] ways
+     [005] wayselected
+     [006] path
+     [007] x
+     [008] s
+     [009] length
+     [010] this
+    89:SWFACTION_PUSH
+     [000]   Constant: 0 "obj"
+    94:SWFACTION_DELETE2
+    95:SWFACTION_POP
+    96:SWFACTION_PUSH
+     [000]   Constant: 0 "obj"
+    101:SWFACTION_GETVARIABLE
+    102:SWFACTION_PUSH
+     [000]   Constant: 1 "field"
+    107:SWFACTION_DELETE
+    108:SWFACTION_POP
+    109:SWFACTION_PUSH
+     [000]   Constant: 2 "_root"
+    114:SWFACTION_GETVARIABLE
+    115:SWFACTION_PUSH
+     [000]   Constant: 3 "map"
+    120:SWFACTION_GETMEMBER
+    121:SWFACTION_PUSH
+     [000]   Constant: 4 "ways"
+    126:SWFACTION_GETMEMBER
+    127:SWFACTION_PUSH
+     [000]   Constant: 5 "wayselected"
+    132:SWFACTION_GETVARIABLE
+    133:SWFACTION_GETMEMBER
+    134:SWFACTION_PUSH
+     [000]   Constant: 6 "path"
+    139:SWFACTION_GETMEMBER
+    140:SWFACTION_PUSH
+     [000]   Constant: 7 "x"
+    145:SWFACTION_GETVARIABLE
+    146:SWFACTION_GETMEMBER
+    147:SWFACTION_PUSH
+     [000]   Integer: 4
+    155:SWFACTION_DELETE
+    156:SWFACTION_POP
+    157:SWFACTION_PUSH
+     [000]   Constant: 8 "s"
+    162:SWFACTION_GETVARIABLE
+    163:SWFACTION_PUSH
+     [000]   Constant: 9 "length"
+    168:SWFACTION_DELETE
+    169:SWFACTION_POP
+    170:SWFACTION_PUSH
+     [000]   Constant: 7 "x"
+     [001]   Constant: 10 "this"
+    177:SWFACTION_DELETE2
+    178:SWFACTION_DEFINELOCAL
+    179:SWFACTION_PUSH
+     [000]   Constant: 0 "obj"
+    184:SWFACTION_GETVARIABLE
+    185:SWFACTION_PUSH
+     [000]   Constant: 7 "x"
+    190:SWFACTION_GETMEMBER
+    191:SWFACTION_TRACE
+    192:SWFACTION_DELETE2
+    193:SWFACTION_POP
+    194:SWFACTION_END
+
+Offset: 195 (0x00c3)
+Block type: 1 (SWF_SHOWFRAME)
+Block length: 0
+
+
+Offset: 197 (0x00c5)
+Block type: 0 (SWF_END)
+Block length: 0
+
+

@@ -1,0 +1,2 @@
+test01:swf,png: create and export a png bitmap  (DEFINELOSSLESS)
+test02:swf: create and export a jpeg bitmap (DEFINEBITSJPEG2) 

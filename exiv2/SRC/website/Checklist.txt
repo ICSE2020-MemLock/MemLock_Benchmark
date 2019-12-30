@@ -1,0 +1,69 @@
+Release checklist
+-----------------
+
+Caution: Updating the website can be 1 week's work!
+         You might get lucky and do it quicker
+         You should assume it'll take time to find and fix everything
+         You should publish the website (on another server) and ask the team to review
+         Many scripts are provided, however this is not a "push button" operation.
+
+1 month before the release: Update po/ directory, notify translators
+2 weeks before the release: Update po/ directory, remind translators
+Update po/ directory
+
+Update issues on Redmine
+Update var/__version__
+	$ echo -e '0.27' > var/__version__
+Update var/__ChangeLog__
+v0.26+	Run the script to get revision history:
+		$ cd exiv2/team/contrib/redmine
+		$ ./progress.py getdata.sh release
+		Modify/paste output to html/var/__ChangeLog__
+Update versions (see tagging script)
+Review and update webpages
+	News page
+	Download page
+	Archive page
+	Index page
+	Other pages as needed, external links
+Review and update documentation
+	API doc intro
+	Man page
+	Taglists
+	READMEs
+	Update var/__version__
+	Update var/__manpage__
+
+v0.26+:
+	make the tags:
+	$ cd doc
+	$ make tags
+	$ make
+    create trunk bundle:
+    $ cd website
+    $ rm -rf *trunk*
+    $ bin/exiv2-buildrelease.sh trunk
+    inspect the logs from the buildserver
+ 	copy builds from buildserver to html/builds
+    $ cd website
+	$ bin/getbuilds.sh
+
+	Get the Website ready:
+	$ cd website
+	$ make # This does NOT run bin/getbuilds.sh NOR bin/exiv2-buildrelease.sh NOR make tags
+	$ open html/index.html
+
+#v0.25 Create packages (bin/exiv2-buildrelease.sh ; bin/exiv2-buildwinexe.sh)
+
+Tag release     (bin/exiv2-tagrelease.sh)
+Publish webpages and packages locally (make publish)
+Download and test packages
+#v0.25 Test Windows binary on Windows
+Really publish webpages and packages (make really-publish)
+Validate uploaded webpages with W3C HTML checker
+Exiv2 forum announcement
+Facebook fan page update
+Freshmeat.net announcement
+
+# That's all Folks!
+##

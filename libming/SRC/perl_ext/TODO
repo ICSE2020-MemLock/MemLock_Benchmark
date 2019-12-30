@@ -1,0 +1,39 @@
+=head1 TODO
+
+=head2 Feature Synchronization
+
+make all functions that ming provides to the perl-extension too
+as far as needed
+
+=head2 CPAN
+
+Setup the build environment, files and directories for distribution on cpan 
+in a way that the ming-perl extension can be built on cpan automatically.
+
+=head2 Documentation
+
+Update pod documentation for the SWF modules where neccesary.
+Please prevent 'podchecker *.pm' finding any errors.
+
+In early 2009:  now every method has its own documentation.
+In some very few cases there is only a stub, marked with "ToDo",
+	grep ToDo * | wc -l
+today counts just 12 (of nearly 300 methods) at all.
+
+=head2 Tests
+
+There are currently some very few tests in t. But there is a growing number 
+of tests in ming lib itself, that can be run currently by
+
+./configure --enable-perl
+make
+make check
+
+They should be available when building on cpan too.
+
+=head2 Bugs
+
+Fix object memory bugs:
+* check decrementing reference counter at DESTROY code
+* check for memory leaks
+* check for twice free() calls (via xs-code vs library-code)

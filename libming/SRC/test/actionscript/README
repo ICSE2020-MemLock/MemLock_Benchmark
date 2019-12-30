@@ -1,0 +1,20 @@
+This directory contains test files for the actionscript compiler.
+
+To add a new test:
+
+	0: let your test name be "Test"
+	1: write the test in Test.as 
+	2: compile with 'makeswf -o Test.swf Test.as'
+	3: create a .ref with 'listswf Test.swf > Test.ref'
+	4: IMPORTANT: verify that the output is *correct*
+	5: add Test.as and Test.ref to CVS
+	6: add Test.as to the AS_TESTS variable in Makefile.am
+	7: add Test.ref to the EXTRA_DIST variable in Makefile.am
+	8: run ./autogen.sh && configure
+	9: run 'make check' to test the test :)
+	10: commit (Test.as Test.ref Makefile.am)
+
+--strk; Sun Jul  9 01:25:51 CEST 2006
+
+also take a look at:
+http://www.libming.org/moin.cgi/HowToAddNewInterface

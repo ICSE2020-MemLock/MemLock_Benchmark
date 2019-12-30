@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SWF::Action - SWF action class</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:feedback@suse.de" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#methods">METHODS</a></li>
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#see_also">SEE ALSO</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>SWF::Action - SWF action class</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<pre>
+        use SWF::Action;
+        my $action = new SWF::Action($script);</pre>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>SWF::Action is an object for storing an action.</p>
+<p>
+</p>
+<hr />
+<h1><a name="methods">METHODS</a></h1>
+<dl>
+<dt><strong><a name="action" class="item">new SWF::Action($script)</a></strong>
+
+<dd>
+<p>Compiles $script and returns an SWF::Action object.
+The script is a text string expected, according ActionScript syntax.</p>
+</dd>
+</li>
+<dt><strong><a name="compile" class="item">$result = $actionObject-&gt;<code>compile($versionX)</code></a></strong>
+
+<dd>
+<p>Recompile object using syntax of versionX. 
+(Some differences exists between values 4 and 5.)
+The result return value will be 0 on successful compiling.</p>
+</dd>
+</li>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<p>Soheil Seyfaie (<a href="mailto:soheil@netcom.ca">soheil@netcom.ca</a>) and
+developers of ming at ming.sourceforge.net</p>
+<p>
+</p>
+<hr />
+<h1><a name="see_also">SEE ALSO</a></h1>
+<p>SWF, SWF::Button, SWF::Movie, SWF::MovieClip, SWF::InitAction</p>
+
+</body>
+
+</html>
